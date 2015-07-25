@@ -1,0 +1,256 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}  
+
+ul.nav, .jumbotron h1  {
+	font-family: 'Arvo', courier, serif;
+}
+
+.navbar-inverse {
+	background-color: #000000;
+	opacity: .8;
+}
+
+#get-involved{
+	background-color: #ff0000;
+}
+
+#back-to-top{
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+
+#back-to-top a{
+	color: #333;
+}
+
+.jumbotron{
+	text-align: center;
+	background-image: url("../images/barbell_stock.jpg");
+	color: white;
+}
+
+.jumbotron h1{
+	margin-top: 0px;
+	margin-bottom: 50px;
+}
+
+.jumbotron p{
+	margin-bottom: 30px;
+	font-weight: 100;
+	padding: 0 50px;
+}
+
+ul.nav {
+	font-size: 13px
+}
+
+footer {
+	background-color: #ff0000;
+	padding-top: 150px;
+	padding-bottom: 30px;
+}
+
+.btn-lg{
+	font-size:36px;
+	background-color: #ff0000;
+}
+
+.homepage{
+	text-align: center;
+	padding-top: 30px
+	padding-bottom: 30px;
+}
+
+.homepage h3, .homepage h2{
+	text-transform: uppercase;
+	font-family: 'Arvo', courier, serif;
+	color: #ff0000;
+}
+
+.homepage h2{	
+	font-size: 30px;
+}
+
+.homepage h3{
+	font-size: 26px;
+}
+
+.homepage p{
+	font-weight: 300;
+	font-size: 21px;
+}
+
+.homepage a{
+	color: #ff0000;
+}
+
+.homepage a:hover{
+	color: #e74c3c;
+	text-decoration: none;
+	opacity: .8;
+}
+
+.homepage hr{
+	border-top: 1px solid #e74c3c;
+	width: 160px;
+	margin-top: 15px; 
+}
+
+#gympic1 {
+	padding-bottom: 10px
+}
+
+.modalDialog{
+	position: fixed;
+	overflow: scroll;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity: 0;
+	-webkit-transition: opacity 400ms ease-in;
+	-mod-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.modalDialog img{
+  	margin-top: 10px;
+}
+
+
+#training p{
+	text-align: justify;
+}
+
+#greg p{
+	text-align: justify;
+	font-size: small;
+}
+
+.jad{
+	text-align: center;
+}
+
+#background {
+	text-align: justify;
+}
+
+#background h3, h4{
+	text-align: center;
+}
+
+.modalDialog p{
+	margin-top: 10px;
+	font-size: 18px;
+	text-align: justify;
+} 
+
+.modalDialog:target{
+	opacity: 1;
+	pointer-events: auto;
+}
+/*modal window styling*/
+.modalDialog > div {
+	width: 1000px;
+	position:relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+}
+.close{
+	background: #ff0000;
+	color: #000000
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -12px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-border-radius: 12px
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+.close:hover{background: #ff0000;}
+
+/*Responsive Styling*/
+/*Medium*/
+@media (max-width: 1199px) {
+  .jumbotron h1 {
+    font-size: 56px;
+    padding: 30px;
+  }
+}
+/*Small*/
+@media (max-width: 991px) {
+  .jumbotron h1 {
+    font-size: 44px;
+  }
+  .jumbotron p {
+    padding: 0 10px;
+  }
+  #get-involved .col-md-4 .col-md-6 .col-md-3{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .modalDialog > div {
+  	width: 80%; 	
+  }
+
+  .modalDialog p{
+  	font-size: 12px;
+  }
+
+  .gmap{
+  	width: 80%;
+  }
+
+  .gcalender{
+  	width: 80%;
+  }
+
+  .ppic{
+  	width: 80%;
+  }
+}
+/*Extra Small*/
+@media (max-width: 767px) {
+  .jumbotron h1 {
+    font-size: 24px;
+  }
+  .jumbotron p {
+    font-size: 16px;
+    padding: 0;
+  }
+  .btn-lg {
+    font-size: 18px;
+  }
+  .homepage p{
+    font-size: 18px;
+  }
+  .modalDialog p{
+  	font-size: 12px;
+  }
+
+  .gcalender{
+  	width: 60%;
+  }
+  footer img {
+    width: 80%;
+  }
+}
+
