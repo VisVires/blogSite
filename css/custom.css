@@ -1,6 +1,6 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 50px;
+  padding-top: 0px;
 }  
 
 ul.nav, .jumbotron h1  {
@@ -27,14 +27,15 @@ ul.nav, .jumbotron h1  {
 }
 
 .jumbotron{
-	text-align: center;
-	background-image: url("../images/barbell_stock.jpg");
+	text-align: left;
+	background-image: url("../images/seattleskyline.jpg");
 	color: white;
 }
 
 .jumbotron h1{
 	margin-top: 0px;
 	margin-bottom: 50px;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .jumbotron p{
@@ -48,7 +49,7 @@ ul.nav {
 }
 
 footer {
-	background-color: #ff0000;
+	background-color: #000000;
 	padding-top: 150px;
 	padding-bottom: 30px;
 }
@@ -99,9 +100,6 @@ footer {
 	margin-top: 15px; 
 }
 
-#gympic1 {
-	padding-bottom: 10px
-}
 
 .modalDialog{
 	position: fixed;
@@ -123,19 +121,6 @@ footer {
   	margin-top: 10px;
 }
 
-
-#training p{
-	text-align: justify;
-}
-
-#greg p{
-	text-align: justify;
-	font-size: small;
-}
-
-.jad{
-	text-align: center;
-}
 
 #background {
 	text-align: justify;
@@ -219,10 +204,6 @@ footer {
   	width: 80%;
   }
 
-  .gcalender{
-  	width: 80%;
-  }
-
   .ppic{
   	width: 80%;
   }
@@ -246,9 +227,6 @@ footer {
   	font-size: 12px;
   }
 
-  .gcalender{
-  	width: 60%;
-  }
   footer img {
     width: 80%;
   }
