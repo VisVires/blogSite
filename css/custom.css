@@ -5,21 +5,37 @@ body {
   font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
 }  
 
+header {
+	height:215px;
+}
+
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
+
+.navbar-default	{
+	background-color: #000;
+}
+
 ul#tabs { 
 	list-style-type: none; 
-	margin: 0px 0 0 0; 
-	padding: 0 0 0 0; 
+	margin: 2px 2px 2px 2px; 
+	padding: 2px 2px 0px 2px; 
 }
 
 ul#tabs li { 
 	display: inline; 
 }
 
-ul#tabs li a { color: #9d9d9d;
-	background-color: #333; 
-	border: 0px solid #333; 
+ul#tabs li a { 
+	color: #9d9d9d;
+	background-color: #000; 
+	border: 0px solid #000; 
 	border-bottom: none; 
-	padding: 1.0em; 
+	padding: 2em; 
 	text-decoration: none; 
 }
 
@@ -31,11 +47,11 @@ ul#tabs li a.selected {
 	color: #000; 
 	background-color: #f1f0ee; 
 	font-weight: bold; 
-	padding: 1.0em 1.0em 1.0em 1.0em; 
+	padding: 2.0em 2.0em 2.0em 2.0em; 
 }
 
 div.tabContent { 
-	border: 1px solid #c9c3ba; 
+	border: 0px solid #c9c3ba; 
 	padding: 0.5em; 
 	background-color: #f1f0ee; 
 }
@@ -48,14 +64,6 @@ ul.nav, .jumbotron h1  {
 	font-family: 'Ubuntu', sans-serif;
 }
 
-.navbar-inverse {
-	background-color: #000000;
-	opacity: .8;
-}
-
-#get-involved{
-	background-color: #ff0000;
-}
 
 #back-to-top{
 	position: fixed;
@@ -68,12 +76,13 @@ ul.nav, .jumbotron h1  {
 }
 
 .jumbotron{
-	text-align: left;
 	background-image: url("../images/seattleskyline.jpg");
 	color: white;
+	margin-bottom: 5px;
 }
 
-.jumbotron h1{
+.jumbotron h1, h3{
+	text-align: center;
 	margin-top: 0px;
 	margin-bottom: 50px;
 	font-family: 'Montserrat', sans-serif;
@@ -93,52 +102,6 @@ footer {
 	background-color: #000000;
 	padding-top: 150px;
 	padding-bottom: 30px;
-}
-
-.btn-lg{
-	font-size:36px;
-	background-color: #ff0000;
-}
-
-.homepage{
-	text-align: center;
-	padding-top: 30px
-	padding-bottom: 30px;
-}
-
-.homepage h3, .homepage h2{
-	text-transform: uppercase;
-	font-family: 'Arvo', courier, serif;
-	color: #ff0000;
-}
-
-.homepage h2{	
-	font-size: 30px;
-}
-
-.homepage h3{
-	font-size: 26px;
-}
-
-.homepage p{
-	font-weight: 300;
-	font-size: 21px;
-}
-
-.homepage a{
-	color: #ff0000;
-}
-
-.homepage a:hover{
-	color: #e74c3c;
-	text-decoration: none;
-	opacity: .8;
-}
-
-.homepage hr{
-	border-top: 1px solid #e74c3c;
-	width: 160px;
-	margin-top: 15px; 
 }
 
 
@@ -215,7 +178,7 @@ footer {
 
 /*Responsive Styling*/
 /*Medium*/
-@media (max-width: 1199px) {
+@media (max-width: 1200px) {
   .jumbotron h1 {
     font-size: 56px;
     padding: 30px;
@@ -223,16 +186,17 @@ footer {
 }
 /*Small*/
 @media (max-width: 991px) {
+  .jumbotron{
+  	background-size: cover;
+  }
+
   .jumbotron h1 {
     font-size: 44px;
   }
   .jumbotron p {
     padding: 0 10px;
   }
-  #get-involved .col-md-4 .col-md-6 .col-md-3{
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
+  
   .modalDialog > div {
   	width: 80%; 	
   }
@@ -241,13 +205,6 @@ footer {
   	font-size: 12px;
   }
 
-  .gmap{
-  	width: 80%;
-  }
-
-  .ppic{
-  	width: 80%;
-  }
 }
 /*Extra Small*/
 @media (max-width: 767px) {
@@ -267,6 +224,13 @@ footer {
   .modalDialog p{
   	font-size: 12px;
   }
+
+  #nav.affix {
+    position: static;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
 
   footer img {
     width: 80%;
