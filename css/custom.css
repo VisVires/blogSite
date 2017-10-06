@@ -76,13 +76,14 @@ ul.nav, .jumbotron h1  {
 }
 
 .jumbotron{
-	background-image: url("../images/seattleskyline.jpg");
-	color: white;
+	color: red;
+    height: 150px;
 	margin-bottom: 5px;
+    background: transparent;
 }
 
 .jumbotron h1, h3{
-	text-align: center;
+	text-align: left;
 	margin-top: 0px;
 	margin-bottom: 50px;
 	font-family: 'Montserrat', sans-serif;
