@@ -1,16 +1,10 @@
 {
-  "name": "BlogSite",
+  "name": "blogsite",
   "description": "A Site with everything about me, including what I'm working on currently, projects, resume and photography.",
   "version": "0.1.0",
   "homepage": "https://github.com/VisVires/blogSite",
-  "author": {
-    "name": "William George",
-    "email": "wgeorge@outlook.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/VisVires/blogSite.git"
-  },
+  "author": "William George <wgeorge@outlook.com>",
+  "repository": "git://github.com/VisVires/blogSite.git",
   "bugs": {
     "url": "https://github.com/VisVires/blogSite/issues"
   },
@@ -25,9 +19,17 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt nodeunit"
+    "build": "babel src -d lib",
+    "test": "grunt nodeunit",
+    "start": "node server.js"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^2.0.1",
@@ -44,6 +46,13 @@
     "forever": "^0.15.1",
     "fs": "0.0.1-security",
     "googleapis": "^2.1.6",
-    "path": "^0.12.7"
-  }
+    "html-webpack-plugin": "^2.30.1",
+    "path": "^0.12.7",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "uniq": "^1.0.1",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "license": "ISC"
 }
