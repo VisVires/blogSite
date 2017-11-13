@@ -1,0 +1,49 @@
+{
+  "name": "BlogSite",
+  "description": "A Site with everything about me, including what I'm working on currently, projects, resume and photography.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/VisVires/blogSite",
+  "author": {
+    "name": "William George",
+    "email": "wgeorge@outlook.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/VisVires/blogSite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VisVires/blogSite/issues"
+  },
+  "licenses": [
+    {
+      "type": "n",
+      "url": "https://github.com/VisVires/blogSite/master/LICENSE-n"
+    }
+  ],
+  "main": "lib/blogSite",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^2.0.1",
+    "express-session": "^1.12.1",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "mysql": "^2.9.0",
+    "request": "^2.67.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "forever": "^0.15.1",
+    "fs": "0.0.1-security",
+    "googleapis": "^2.1.6",
+    "path": "^0.12.7"
+  }
+}
