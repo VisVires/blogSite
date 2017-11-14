@@ -1,7 +1,12 @@
 /* 
  * ./client/index.js
- * which is the webapck entry file
+ * 
  */
 
-console.log('Sup dudes')
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App.jsx';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
 

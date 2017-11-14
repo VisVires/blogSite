@@ -14,14 +14,14 @@
       "url": "https://github.com/VisVires/blogSite/master/LICENSE-n"
     }
   ],
-  "main": "lib/blogSite",
+  "main": "index.js",
   "engines": {
     "node": ">= 0.8.0"
   },
   "scripts": {
     "build": "babel src -d lib",
     "test": "grunt nodeunit",
-    "start": "node server.js"
+    "start": "webpack-dev-server"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
