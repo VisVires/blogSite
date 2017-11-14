@@ -113,6 +113,14 @@ footer {
 	text-align: left;
 }
 
+#skills_table{
+	font-size: 125%;
+}
+
+.bullets li{
+	font-size: 150%;
+}
+
 .modalDialog{
 	position: fixed;
 	overflow: scroll;
