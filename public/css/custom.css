@@ -1,0 +1,223 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 0px;
+  font-size: 100%; 
+  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  background-color: #DAFFEF;
+}  
+
+#headline{
+	color: #DAFFEF;
+}
+
+header {
+	height:0px;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+	background-color: #64B6AC;
+}
+
+.navbar-inverse{
+	background-color:  #64B6AC; 
+}
+
+.navbar-default	{
+	background-color: #64B6AC;
+}
+
+.h1, .h2, .h3, h1, h2, h3 {
+	margin-top: 10px;
+}
+
+a{
+	color: #5D737E;
+}
+
+a:hover{
+	text-decoration: bold;
+	color: #5D737E;
+}
+
+
+.list-group-item:hover{
+	text-decoration: bold;
+	color: #FCFFFD;
+	background-color: #5D737E; 
+}
+
+.list-group-item{
+	border: 1px solid #5D737E; 
+	background-color: #64B6AC;
+	color: #FCFFFD;
+}
+
+.list-group-item>a:hover{
+	border: 1px #5D737E;
+	background-color: #C0FDFB;
+	color: #5D737E;
+}
+
+.list-group-item:last-child{
+	border-radius-bottom-left: 0px;
+	border-radius-bottom-right: 0px;
+	border-radius-bottom-left: 25px;
+	border-radius-bottom-right: 25px;
+}
+
+.list-group-item:first-child{
+	border-radius-bottom-left: 0px;
+	border-radius-bottom-right: 0px;
+	border-radius-bottom-left: 25px;
+	border-radius-bottom-right: 25px;
+}
+
+#sidebar{
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+div.tabContent { 
+	border: 0px solid #c9c3ba; 
+	padding: 0.5em; 
+	background-color: #f1f0ee; 
+}
+
+div.tabContent.hide { 
+	display: none; 
+}
+
+ul.nav, .jumbotron h1  {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.pagination>li>a, .pagination>li>span{
+	background-color: #64B6AC;
+	border-color: #5D737E;
+	color: #FCFFFD;
+}
+
+pre>code{
+	color: #FCFFFD;
+	overflow-wrap: normal;
+	white-space: pre;   
+}
+
+#back-to-top{
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+
+#back-to-top a{
+	color: #64B6AC;
+}
+
+.jumbotron{
+	margin-bottom: 0px;
+    background-image: url(/images/background/crater.jpg);
+    background-size: cover;
+    min-height: 400px;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 0px;
+}
+
+.jumbotron h1 {
+	text-align: left;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+ul.nav {
+	font-size: 13px
+}
+
+
+footer {
+	background-color: #64B6AC;
+	padding-top: 150px;
+	padding-bottom: 30px;
+}
+
+
+#skills_table{
+	font-size: 125%;
+}
+
+.bullets li{
+	font-size: 150%;
+}
+
+
+.col-date{
+	text-align: right;
+}
+
+.skill_head{
+	font-size: 200%; 
+}
+
+/*Responsive Styling*/
+/*Medium*/
+@media (max-width: 1200px) {
+  .jumbotron h1 {
+    font-size: 56px;
+    padding: 0px;
+  }
+}
+/*Small*/
+@media (max-width: 991px) {
+  .jumbotron{
+  	background-size: cover;
+  }
+
+  .jumbotron h1 {
+    font-size: 44px;
+  }
+  .jumbotron p {
+    padding: 0 10px;
+  }
+  
+  .modalDialog > div {
+  	width: 80%; 	
+  }
+
+  .modalDialog p{
+  	font-size: 12px;
+  }
+
+}
+/*Extra Small*/
+@media (max-width: 767px) {
+  .jumbotron h1 {
+    font-size: 24px;
+  }
+  .jumbotron p {
+    font-size: 16px;
+    padding: 0;
+  }
+  .btn-lg {
+    font-size: 18px;
+  }
+  .homepage p{
+    font-size: 18px;
+  }
+  .modalDialog p{
+  	font-size: 12px;
+  }
+
+  #nav.affix {
+    position: static;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
+
+  footer img {
+    width: 80%;
+  }
+}
+
