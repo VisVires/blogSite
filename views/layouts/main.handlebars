@@ -1,11 +1,14 @@
 <!doctype html>
 <html>
 <head>
-	<!--<link rel="icon" href="/images/Google-Analytics-icon.png"/>-->
+	<link rel="icon" href="/images/wg.png"/>
 	<title>WILLIAM GEORGE</title>
 	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link href="/css/custom.css" rel="stylesheet" type="text/css">
+	<!--<script src="/js/activateList.js"></script>-->
 </head>
 <body>
 	<!--<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -33,19 +36,18 @@
 	  </div>
 	</nav> -->
 	<div class="jumbotron"><!--JumboTron-->
-		<h1>William George</h1>
+		<h1 id="headline"><strong>William George</strong></h1>
 	</div><!--JumboTron-->
 	<div class="container-fluid">
 		<div class="row main">
 			<div class="col-sm-2 col-xs-4" id="sidebar">
 			  <ul class="list-group" id="sidebar">
-			    <a href="/"><li class="list-group-item">HOME</li></a>
-			    <a href="/tech"><li class="list-group-item">TECH</li></a>
-			    <a href="/projects"><li class="list-group-item">PROJECTS</li></a>
-			    <a href="/resume"><li class="list-group-item">RESUME</li></a>
-			    <a href="/fitness"><li class="list-group-item">FITNESS</li></a>
-			    <a href="/photography"><li class="list-group-item">PHOTOGRAPHY</li></a>
-			    <a href="/contact"><li class="list-group-item">CONTACT</li></a>
+			    <a href="/"><li class="list-group-item {{#if active.aboutme}}active{{/if}}" id="aboutme">ABOUT ME</li></a>
+			    <a href="/tech"><li class="list-group-item {{#if active.tech}}active{{/if}}" id ="tech">TECH</li></a>
+			    <a href="/projects"><li class="list-group-item {{#if active.projects}}active{{/if}}">PROJECTS</li></a>
+			    <a href="/resume"><li class="list-group-item {{#if active.resume}}active{{/if}}">RESUME</li></a>
+			    <a href="/fitness"><li class="list-group-item {{#if active.fitness}}active{{/if}}">FITNESS</li></a>
+			    <a href="/photography"><li class="list-group-item {{#if active.photography}}active{{/if}}">PHOTOGRAPHY</li></a>
 			  </ul>
 			</div> <!--col-sm-3--> 
 			<div class="col-sm-10 col-xs-8">
@@ -54,20 +56,28 @@
 		</div>
 	</div>
 	<div class="container-fluid">
-		<nav>
-		  <ul class="pagination">
-		    <li><a href="/">1</a></li>
-		    <li><a href="/tech">2</a></li>
-		    <li><a href="/projects">3</a></li>
-		    <li><a href="/resume">4</a></li> 	    
-		    <li><a href="/fitness">5</a></li>
-		    <li><a href="/photography">6</a></li>
-		    <li><a href="/fitness">7</a></li>
-		    <li><a href="/contact">8</a></li>
-		  </ul>
-		</nav>
+		<div class="row">
+		<div class="col-sm-4">
+			<nav>
+			  <ul class="pagination">
+			    <li><a href="/" class="nav-link {{#if active.aboutme}}active{{/if}}">1</a></li>
+			    <li><a href="/tech" class="nav-link {{#if active.tech}}active{{/if}}">2</a></li>
+			    <li><a href="/projects" class="nav-link {{#if active.projects}}active{{/if}}">3</a></li>
+			    <li><a href="/resume" class="nav-link {{#if active.resume}}active{{/if}}">4</a></li> 	    
+			    <li><a href="/fitness" class="nav-link {{#if active.fitness}}active{{/if}}">5</a></li>
+			    <li><a href="/photography" class="nav-link {{#if active.photography}}active{{/if}}">6</a></li>
+			  </ul>
+			</nav>
+		<div class="contact">
+			<h4 style="text-align: left"><strong>CONTACT ME</strong></h4>
+			<p><a href="https://www.linkedin.com/in/georgw1/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn </a></p>
+			<p><a href="mailto:wgeorge@outlook.com"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Email </a></p>
+			<p><a href="https://github.com/VisVires"><i class="fa fa-github-square" aria-hidden="true"></i> GitHub </a></p>
+			<p><a href="https://instagram.com/visviresvita"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram </a></p>
+		</div>
+		</div>
+		</div>		
 	</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/smoothScroll.js"></script>
 </body>

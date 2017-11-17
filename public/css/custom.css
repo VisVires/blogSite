@@ -6,12 +6,21 @@ body {
   background-color: #DAFFEF;
 }  
 
+
+header {
+	height:0px;
+}
+
 #headline{
 	color: #DAFFEF;
 }
 
-header {
-	height:0px;
+img {
+	margin-top: 16px;
+}
+
+.nav-link.active {
+	color: black;
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
@@ -30,8 +39,17 @@ header {
 	margin-top: 10px;
 }
 
+.contact p {
+	text-decoration: bold;
+	font-size: 150%;
+}
+
 a{
 	color: #5D737E;
+}
+
+hr{
+	background: #5D737E;
 }
 
 a:hover{
@@ -42,8 +60,22 @@ a:hover{
 
 .list-group-item:hover{
 	text-decoration: bold;
-	color: #FCFFFD;
+	color: #COFDFB;
 	background-color: #5D737E; 
+}
+
+.list-group-item.active{
+	text-decoration: bold;
+	color: #FCFFFD;
+	background-color: #5D737E;
+	border-color: #FCFFFD; 
+}
+
+.list-group-item.active:hover{
+	text-decoration: bold;
+	color: #FCFFFD;
+	background-color: #5D737E;
+	border-color: #FCFFFD; 
 }
 
 .list-group-item{
