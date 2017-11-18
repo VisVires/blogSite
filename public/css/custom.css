@@ -17,6 +17,7 @@ header {
 
 img {
 	margin-top: 16px;
+	max-width: 100%;
 }
 
 .nav-link.active {
@@ -49,7 +50,7 @@ a{
 }
 
 hr{
-	background: #5D737E;
+	border-color: #5D737E;
 }
 
 a:hover{
