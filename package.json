@@ -43,6 +43,7 @@
   },
   "keywords": [],
   "dependencies": {
+    "aws-sdk": "^2.153.0",
     "forever": "^0.15.1",
     "fs": "0.0.1-security",
     "googleapis": "^2.1.6",
