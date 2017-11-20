@@ -9,67 +9,106 @@
 
 <h2 class="blog-post-title">What happens when you input ls -l foo* in your bash shell?</h2>
   <p class="blog-post-meta">November 17, 2017</p>
-  <p>This was an interview question I saw recently for a System Administrator role, and while there are many resources to answer this question, I didn't feel any was complete enough. My hope is to provide an overview of the entire process.</p>
+  <p>This was an interview question I saw recently for a System Administrator role, and while there are many resources to answer this question, I didn't feel any were complete enough. My hope is to start with a high level overview and gradually make this post get deeper and deeper into the rabbit hole of the ls command.</p>
   <hr>
-  <p></p>
-  <blockquote>
-    <p><strong></strong></p>
-  </blockquote>
-    <p>1. User writes command into stdin of shell which is waiting with getline() function</p>
-    <p>1 - 2?. Shell checks if command is an alias? shell checks if command exists in path?</p>
-    <p>2. Shell calls fork() system call</p>
-    <p>2.1 system call executes in kernel mode and each has a number associated with it</p>
-    <p>2.2 when user program makes system call a library routine is called</p>
-    <p>2.3 library routine issues a trap to linux OS by executing 0x80 assembly instruction it also send system call number to kernel using EAX register</p>
-    <p>2.4 Arguments are sent to other registers</p>
-    <p>2.5 kernel executes the system call and returns the result to the user program using a register</p>
-    <p>3. fork() creates two identical copies of the address space one for the parent and one for the child..</p>
-    <p>4. fork() allocates the task structure and fills it from parent</p>
-    <p>5. Child's stack and user area is allocated and filled from parent</p>
-    <p>6. Childs PID is allocated</p>
-    <p>7. Child is set up to share parents text and copies page tables and stack</p>
-    <p>8. Parent shares open files with parent and copies registers to child</p>
-    <p>9. New shell is created</p>
-    <p>10. shell checks if ls is an alias if so it replaces it with the value</p>
-    <p>11. stat() is called then vfs_stat() which both wrap the following</p>
-    <p>12. search_for_command() c function is called which calls find_user_command_in_path() (find_user_command_internal() fails first)</p>
-    <p>12. shell looks for ls by tokenizing and parsing then searching throught the PATH enviromental variable using ':' as the delimiter using find_in_path_element()</p>
-    <p>13. execve() verifies execute permissions for the commnand</p>
-    <p>14. execve(command, args, NULL) uses args</p>
-    <p>14. shell reads and verfies the header</p>
-    <p>15. arguments are copied and evironment is copied</p>
-    <p>16. new address space is allocated</p>
-    <p>17. Registers are initialized</p>
-    <p>18. ls process is started and replaces shell</p>
-    <p>19. openat() used open the current directory or directory listed</p>
-    <p>Normally opendir(3) is used though</p>
-    <p>20. directory data read using getdents() system call then closes file descriptor when done reading</p>
-    <p>Normally readdir(3) is used here - returns pointer to a structure represent te directory entry</p>
-    <p>19. stat() with arg of item - works and finds file name and info</p>
-    <p>Normally closedir(3) is used here</p>
-    <p>20. lstat() with arg of items - checks if its a symbolic link</p>
-    <p>21. fstat() with arg of items - is verified file</p>
-    <p>22. write items to stdout from kernel</p>
-<h2>Heading</h2>
-  <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mo}llis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-  <h3>Sub-heading</h3>
-    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-    <pre>
-      <code>Example code block</code>
-    </pre>
-    <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-  <h3>Sub-heading</h3>
-    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    <ul>
-      <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-      <li>Donec id elit non mi porta gravida at eget metus.</li>
-      <li>Nulla vitae elit libero, a pharetra augue.</li>
-    </ul>
-    <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+  <h3>The Parent Shell</h3>
+    <div class="well-sm">
+      <code>$ls -l foo*</code>
+    </div>
+    <p>User writes command into stdin of shell which is waiting with getline() function</p>
+    <p>Then the bash shell checks if command is an alias and if not it checks if command exists via a script similar to the following, where it uses the bash builtin command "command" to see if the command exists in PATH</p>
+    <div class="well-sm">
+      <code>
+      #!/bin/sh<br>
+      #$1 holds the requested command<br>
+      if command -v $1  &>/dev/null<br>
+      then<br>
+      <p class="indent">return 1</p>
+      else<br>
+      <p class="indent">return 0</p>
+      fi
+      </code>
+    </div>
+    <p>The <code>command</code> command works by using the <code>stat()</code> C function which returns information about a file if it can find it or -1 and an error if not. </p>
+    <p> The PATH is then tokenized using the ":" to separate each element and each segment in the path is checked to search for the command.</p><br>
+    <p>Here's an example of the search from my own PATH:</p>
+    <div class="well-sm">
+      <code>stat("/home/username/bin/ls", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)<br>
+      stat("/home/username/.local/bin/ls", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)<br>
+      stat("/usr/local/sbin/ls", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)<br>
+      stat("/usr/local/bin/ls", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)<br>
+      stat("/usr/sbin/ls", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)<br>
+      stat("/usr/bin/ls", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)<br>
+      stat("/sbin/ls", 0x7ffc92ee7d20)    = -1 ENOENT (No such file or directory)<br>
+      stat("/bin/ls", 0x7ffc92ee7d20)     = 0<br>
+      </code>
+    </div>
+    <p> As you can see the command is found in the /bin folder.
+    <p>If the command is valid the shell then uses the fork() system call to start allocating resources to handle the new command</p>
+    <h3>The fork() System Call</h3>
+    <p>When the fork() system call is executed a series of events happen to create a new process:</p>
     <ol>
-      <li>Vestibulum id ligula porta felis euismod semper.</li>
-      <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-      <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+      <li>fork() system call and switches control from user mode to kernel mode by issuing a trap passing control to the interrupt vector 0x80, when int 0x80 is executed the call transfers to the kernel entry point _system_call. This is the same for all system calls and saves all the registers.</li>
+      <li>The next instruction is the assembly instruction <code>pushl eax</code> which pushes a long onto the eax register that represents the actual system call.</li>
+      <li>Any arguments are sent to the other registers</li>
+      <li>The kernel executes the system call then returns the result to the user program</li>
+      <li>With the fork() execution by the kernel an <em>almost</em> exact copy of the parent process is made called the child process with the following events:</li>
+      <ul>
+        <li>Child's task structure is allocated</li>
+        <li>Child's task structure is filled from the parent</li>
+        <li>Child's stack and user area's are allocated</li>
+        <li>Child's user area filled from parent</li>
+        <li>A Process ID (PID) is allocated for the child</li>
+        <li>Child is set up to share parent's text</li>
+        <li>Page tables for data and stack are copied</li>
+        <p class="indent">Note: Many modern Linux systems give the child page tables but instead of copying them it just has them point to the parent's pages. If the child or parent attemptes to write on the page then a new copy of the page is allocated..this will save memory and is called a <strong>copy on write.</strong></p>
+        <li>Sharing of open files between child and parent is set up</li>
+        <li>Parents registers are copied from parent to child</li>
+      </ul>
     </ol>
-    <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-    <h1>ITS ALIVE</h1>
+    <p>This series of steps creates a new shell almost identical to the parent except for:</p> 
+    <ul>
+      <li>PID</li>
+      <li>Parent's PID</li>
+      <li>It has it's own copy of file descriptors and directory streams</li>
+      <li>Process, text, data and memory locks</li>
+      <li>Process times in the tms struct</li>
+      <li>Resource utilizations for new process set at 0</li>
+      <li>Pending signals initialize to the empty set</li>
+      <li>Timers created not inherited</li>
+      <li>Asynchronous input or output operations are not inherited</li>
+    </ul>
+    <h3>Processing the Command</h3>
+    <p>Once the new child process is created we need to execute the command. which will be done with the <code>execve()</code></p>
+    <p>The exec commands purpose is to replace the current program with the specified program. In bash there are a couple types of exec commands:</p>
+    <ul>
+      <li><code>int execl(char *path, char *arg1, ... char* argn)</code><br>(uses strings as arguments from 1 to n)</li>
+      <li><code>int execv(char *path, char *arg[])</code><br>(uses an array of pointers to strings as arguments)</li>
+    </ul>
+    <p>The specific command in this case is:</p>
+    <div class="well-sm">
+    <code>execve("/bin/ls", ["ls", "-l", "foo.cpp", "foobar", "fooie"], [/* 68 vars */])</code>
+    </div>
+    <p> As you can see the first argument is the path, the second is an array of strings as arguments including the command "ls","-l", "foo.cpp", "foobar",and "fooie", the final argument is the enviroment variables.</p>
+    <p>As you can see an expansion has occured. The original foo* argument was expanded with the current files in the directory that start with the specified parameter "foo", we'll get into how this happened in a later post.</p>   
+    <!--<p>Now we need to back up for a minute as the thing we input was foo* and yet that argument has been expanded to foo.cpp, foobar and fooie, how did that happen?</p>-->
+    <p>When the <code>execv()</code> is called on the valid command several steps occur to replace the current shell with ls.</p>
+    <ol>
+      <li>First we find the executable program</li>
+      <li>Verify the executable permissions for the program</li>
+      <li>The shell reads the header then verifies it</li>
+      <li>The arguments and enviromental strings are copied to the kernel</li>
+      <li>The old address space is freed</li>
+      <li>A new address space is allocated</li>
+      <li>Arguments and enviromental variables are copied to stack</li>
+      <li>Signals are reset</li>
+      <li>Registers are initialized</li>
+    </ol>
+    <p>The ls command is now ready to be executed in its new address space</p>
+    <h3>The ls Command</h3>
+    <p><code>opendir()</code> used open the current directory or directory listed</p>
+    <p>Next using either the getdents() system call or readdir() with the current directory as the argument the program moves through each file in the directory</p>
+    <p>As we move through each item in the directory those that match the arguments in the execv() function are called with fstat(), a variation of stat() which finds the file name and the information for each file in the current working directory for output</p>
+    <p>Each item that is found is the output to STDOUT (unless redirected) with a write() system call</p>
+    <p>Finally closedir(3) is used and the user can now see the files that match the arguments in the output</p>
+    <div class="fb-comments" data-href="https://www.williamgeorge.me/tech" data-numposts="5"></div>
