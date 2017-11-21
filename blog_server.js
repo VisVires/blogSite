@@ -1,17 +1,17 @@
-var request = require('request');
-var express = require('express');
-var app = express();
-var hbs = require('express-handlebars').create({defaultLayout:'main'});
-var session = require('express-session');
-var http = require('http');
-var fs = require('fs');
-var path = require('path');
+const request = require('request');
+const express = require('express');
+const app = express();
+const hbs = require('express-handlebars').create({defaultLayout:'main'});
+const session = require('express-session');
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+const path = require('path');
 //var util = request('util');
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
-
 app.use(express.static('public'));
 
 app.get('/', function (req,res) {
@@ -81,8 +81,9 @@ app.use(function (err, req, res, next) {
     res.render('500');
 });
 
-//output affirmative to node console
-app.listen(app.get('port'), function () {
+
+http.createServer(app).listen(app.get('port'), function(){
     console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
+
 
