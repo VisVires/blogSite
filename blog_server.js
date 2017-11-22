@@ -63,8 +63,14 @@ app.get('/fitness', function (req,res) {
 
 //go to photography page
 app.get('/photography', function (req,res) {
-    var context = {'active': {'photography': true}};
-	res.render('photography', context);
+    var obj;
+    fs.readFile('public/photography/photography.json', 'utf8', function(err, data){
+        if(err) throw err;
+        obj = JSON.parse(data);
+        //console.log(obj.photos);
+        var context = {'active': {'photography': true}, 'photo': obj.photos};
+        res.render('photography', context);
+    });
 });
 
 //check for 404 error
