@@ -23,9 +23,9 @@
       #$1 holds the requested command<br>
       if command -v $1  &>/dev/null<br>
       then<br>
-      <p class="indent">return 1</p>
+      <code class="indent">return 1</code><br>
       else<br>
-      <p class="indent">return 0</p>
+      <code class="indent">return 0</code><br>
       fi
       </code>
     </div>
@@ -61,7 +61,9 @@
         <li>A Process ID (PID) is allocated for the child</li>
         <li>Child is set up to share parent's text</li>
         <li>Page tables for data and stack are copied</li>
-        <p class="indent">Note: Many modern Linux systems give the child page tables but instead of copying them it just has them point to the parent's pages. If the child or parent attemptes to write on the page then a new copy of the page is allocated..this will save memory and is called a <strong>copy on write.</strong></p>
+        <ul>
+          <li>Note: Many modern Linux systems give the child page tables but instead of copying them it just has them point to the parent's pages. If the child or parent attemptes to write on the page then a new copy of the page is allocated..this will save memory and is called a <strong>copy on write.</strong></li>
+        </ul>
         <li>Sharing of open files between child and parent is set up</li>
         <li>Parents registers are copied from parent to child</li>
       </ul>

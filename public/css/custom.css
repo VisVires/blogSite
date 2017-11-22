@@ -1,10 +1,10 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 0px;
-  font-size: 100%; 
-  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  padding-top: 0px; 
+  font-family: 'Josefin Sans', Sans-Serif;
   background-color: #DAFFEF;
 }  
+
 
 
 header {
@@ -34,7 +34,8 @@ img {
 
 code{
 	background-color: #64B6AC;
-	font-size: 125%;
+	font-size: 100%;
+	font-family: 'Roboto', Sans-Serif;
 	color: #DAFFEF;
 }
 
@@ -60,6 +61,12 @@ code{
 
 .h1, .h2, .h3, h1, h2, h3 {
 	margin-top: 10px;
+	font-family: 'Josefin Sans', Sans-Serif;
+}
+
+p {
+	font-family: 'Open Sans', Sans-Serif;
+	font-size: 125%;
 }
 
 .contact p {

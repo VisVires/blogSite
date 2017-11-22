@@ -1,0 +1,1 @@
+imageSize: 972 px
