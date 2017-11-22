@@ -1,3 +1,3 @@
 #!/bin/bash
 
-convert *.jpg -resize 933 new*.jpg
+convert *.jpg -resize 972 new*.jpg
