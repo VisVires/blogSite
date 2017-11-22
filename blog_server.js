@@ -73,6 +73,8 @@ app.get('/photography', function (req,res) {
     });
 });
 
+
+
 //check for 404 error
 app.use(function (req,res) {
     res.status(404);
