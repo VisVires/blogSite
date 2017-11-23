@@ -1,12 +1,15 @@
-<h2 class="blog-post-title">What I Learned Today...</h2>
-  <p class="blog-post-meta">November 17, 2017</p>
-<p></p>
+<h2 class="blog-post-title">What I'm working on right now...</h2>
+  <p class="blog-post-meta"><strong><em>November 22, 2017</em></strong></p>
+  <p>As I'm getting closer to having this site ready, I'm cleaning up loose ends and preparing content, today's focus will be on a fitness blog post as well as adding some media to the site in the form of either embedded youtube workouts or a link to a youtube account from the fitness page. I'd also like to move each of the daily posts to thumbnails or some other item to make the page cleaner.</p>
   <hr>
-  <p></p>
+  <h5>Quote of the Week</h5>
   <blockquote>
-    <p> <strong></strong></p>
+    <p> <strong>Technology is a word that describes something that doesn’t work yet. - <em>Douglas Adams</em></strong></p>
   </blockquote>
-
+  <p class="blog-post-meta"><strong><em>November 21, 2017</em></strong></p>
+  <p>Today's focus was getting everything secure. Using an AWS EC2 instance and Route53 can be overkill for a simple blog site like this one and so I was looking at ways to keep pricing down but still have a secure page if I'd like to do more with it. AWS has a free AWS Certificate Manager if you use CloudFront or an Elastic Load Balancer for your site, while I could do this to help with content delivery it's not necessary for this site, and each comes with extra fees for the services. My solution was to set up Cloudflare as a proxy then create a security group via AWS to only allow incoming requests from Cloudflare. This way there is no compromise in security from Cloudflare to the EC2 instance.</p>
+  <hr>
+<hr class="style3">
 <h2 class="blog-post-title">What happens when you input ls -l foo* in your bash shell?</h2>
   <p class="blog-post-meta">November 17, 2017</p>
   <p>This was an interview question I saw recently for a System Administrator role, and while there are many resources to answer this question, I didn't feel any were complete enough. My hope is to start with a high level overview and gradually make this post get deeper and deeper into the rabbit hole of the ls command.</p>
