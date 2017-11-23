@@ -7,7 +7,7 @@
     <p> <strong>Technology is a word that describes something that doesn’t work yet. - <em>Douglas Adams</em></strong></p>
   </blockquote>
   <p class="blog-post-meta"><strong><em>November 21, 2017</em></strong></p>
-  <p>Today's focus was getting everything secure. Using an AWS EC2 instance and Route53 can be overkill for a simple blog site like this one and so I was looking at ways to keep pricing down but still have a secure page if I'd like to do more with it. AWS has a free AWS Certificate Manager if you use CloudFront or an Elastic Load Balancer for your site, while I could do this to help with content delivery it's not necessary for this site, and each comes with extra fees for the services. My solution was to set up Cloudflare as a proxy then create a security group via AWS to only allow incoming requests from Cloudflare. This way there is no compromise in security from Cloudflare to the EC2 instance.</p>
+  <p>Today's focus was getting everything secure. Using an AWS EC2 instance and Route53 can be overkill for a simple blog site like this one and so I was looking at ways to keep pricing down but still have a secure page. AWS has a free SSL Certificate Manager if you use CloudFront or an Elastic Load Balancer for your site, but neither are necessary for this site, and each comes with extra fees for the services. My solution was to set up Cloudflare as a proxy then create a security group via AWS to only allow incoming requests from Cloudflare. This way there is no compromise in security from Cloudflare to the EC2 instance.</p>
   <hr>
 <hr class="style3">
 <h2 class="blog-post-title">What happens when you input ls -l foo* in your bash shell?</h2>
