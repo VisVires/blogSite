@@ -6,9 +6,9 @@
 	     	<hr class="style3">
    	 	</div>
 		{{#each photo}}
-		<img class="img-fluid" src="{{this}}" alt="{{this}}" style="width: 1223px; padding-left: 8px; padding-right: 8px;">
+		<img class="img-fluid" src="{{this.photo}}" alt="{{this.photo}}" style="width: 1223px; padding-left: 8px; padding-right: 8px;">
 		<div class="caption">
-			<!--<p>Caption</p>-->
+			<p><strong>{{this.location}}</strong>: {{this.caption}}</p>
 		</div>
 		{{/each}}
 		 <div class="fb-comments" data-href="https://www.williamgeorge.me/photography" data-numposts="5"></div>

@@ -13,13 +13,19 @@ outfile.write('{\"photos\":[')
 output = ''
 
 #call file naming script
-subprocess.call(['./fileChange.sh'])
+#subprocess.call(['./fileChange.sh'])
 
 #write each .jpg file in directory to output
 for file in os.listdir('.'):
     if file.endswith('.jpg'):
         filename = os.path.join('', file)
-        output = output + ('\"/photography/'+ filename + '\", ')
+        print filename
+        location = raw_input('Where was this photo taken?')
+        caption = raw_input('What caption goes with this photo?')
+        
+        output = output + ('{\"photo\":' + '\"/photography/'+ filename + '\", \"location\":\"' +  location+'\", \"caption\":\"' + caption + '\"}')
+        
+
 
 #strip final comma
 final = output.rstrip(', ')

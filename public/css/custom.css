@@ -54,6 +54,18 @@ code{
 	color: black;
 }
 
+#download {
+	border: 1px solid #5D737E; 
+	background-color: #64B6AC;
+	color: #FCFFFD;
+}
+
+#download:hover {
+	text-decoration: bold;
+	color: #COFDFB;
+	background-color: #5D737E;
+}
+
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
 	background-color: #64B6AC;
 }

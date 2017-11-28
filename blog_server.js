@@ -8,6 +8,7 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 //var util = request('util');
+const router = express.Router();
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -44,6 +45,11 @@ app.get('/resume', function (req,res) {
     var context = {'active': {'resume': true}};
 	res.render('resume', context);
 });
+
+app.get('/download', function (req, res) {
+    var file = __dirname + '/public/resume/williamgeorge_cv.pdf';
+    res.download(file);
+})
 
 //go to fitness page
 app.get('/fitness', function (req,res) {
