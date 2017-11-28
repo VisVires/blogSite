@@ -20,21 +20,30 @@ app.get('/', function (req,res) {
 	res.render('aboutme', context);
 });
 
-app.get('/tech', function (req,res) {
-	var content;
-    //console.log(content);
-    fs.readFile(path.join(__dirname,"public/tech_blog","tblog1115.html"), 'utf8',function (err,data) {
-        if (err) {
-            console.log(err);
-            process.exit(1);
-    	}
-        content = data;
+//tech blog page
+app.get('/tech/:techBlogId?', function (req,res) {
+    var blogId = req.params.techBlogId;
+    if (!blogId){
+	   var content;
         //console.log(content);
-        var context = {'curr': content, 'active': {'tech': true}};
-        res.render('tech', context);
-     });
+        fs.readFile('public/tech_blog/tposts.json',  'utf8', function(err, months){
+            if(err) throw err;
+            posts = JSON.parse(months);
+            fs.readFile(path.join(__dirname,'public/tech_blog/tblog1115.html'), 'utf8',function (err,data) {
+                if (err) {
+                    console.log(err);
+                    process.exit(1);
+	            }
+                content = data;
+                //console.log(content);
+                var context = {'curr': content, 'active': {'tech': true}, 'month': posts.posts};
+                res.render('tech', context);
+            });
+        });
+    }
 });
 
+//projects 
 app.get('/projects', function (req,res) {
     var context = {'active': {'projects': true}};
 	res.render('projects', context);
@@ -46,25 +55,33 @@ app.get('/resume', function (req,res) {
 	res.render('resume', context);
 });
 
+//download resume
 app.get('/download', function (req, res) {
     var file = __dirname + '/public/resume/williamgeorge_cv.pdf';
     res.download(file);
 })
 
 //go to fitness page
-app.get('/fitness', function (req,res) {
-	var content;
-    //console.log(content);
-    fs.readFile(path.join(__dirname,"public/fitness_blog","fblog1115.html"), 'utf8',function (err,data) {
-        if (err) {
-            console.log(err);
-            process.exit(1);
-    	}
-        content = data;
+app.get('/fitness/:fitBlogId?', function (req,res) {
+    var fitBlog = req.params.fitBlogId;
+    if(!fitBlog){
+    	var content;
         //console.log(content);
-        var context = {'curr': content, 'active': {'fitness': true}};
-        res.render('fitness', context);
-    });
+        fs.readFile('public/fitness_blog/fposts.json',  'utf8', function(err, months){
+            if(err) throw err;
+            posts = JSON.parse(months);
+
+            fs.readFile(path.join(__dirname,'public/fitness_blog/fblog1115.html'), 'utf8',function (err,data) {
+                if (err) {
+                    console.log(err);
+                    process.exit(1);
+        	    }
+                content = data;
+                var context = {'curr': content, 'active': {'fitness': true}, 'month': posts.posts};
+                res.render('fitness', context);
+            });
+        });
+    }
 });
 
 //go to photography page
