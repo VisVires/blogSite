@@ -1,14 +1,14 @@
-const request = require('request');
-const express = require('express');
-const app = express();
-const hbs = require('express-handlebars').create({defaultLayout:'main'});
-const session = require('express-session');
-const http = require('http');
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
+var request = require('request');
+var express = require('express');
+var app = express();
+var hbs = require('express-handlebars').create({defaultLayout:'main'});
+var session = require('express-session');
+var http = require('http');
+var https = require('https');
+var fs = require('fs');
+var path = require('path');
 //var util = request('util');
-const router = express.Router();
+var router = express.Router();
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -23,9 +23,25 @@ app.get('/', function (req,res) {
 //tech blog page
 app.get('/tech/:techBlogId?', function (req,res) {
     var blogId = req.params.techBlogId;
-    if (!blogId){
-	   var content;
-        //console.log(content);
+    var content;
+    //console.log(content);
+    if (!blogId || blogId == 'December2017'){
+        fs.readFile('public/tech_blog/tposts.json',  'utf8', function(err, months){
+            if(err) throw err;
+            posts = JSON.parse(months);
+            fs.readFile(path.join(__dirname,'public/tech_blog/tblog_1217.html'), 'utf8',function (err,data) {
+                if (err) {
+                    console.log(err);
+                    process.exit(1);
+	            }
+                content = data;
+                //console.log(content);
+                var context = {'curr': content, 'active': {'tech': true}, 'month': posts.posts};
+                res.render('tech', context);
+            });
+        });
+    }
+    else if(blogId == 'November2017'){
         fs.readFile('public/tech_blog/tposts.json',  'utf8', function(err, months){
             if(err) throw err;
             posts = JSON.parse(months);
@@ -33,7 +49,7 @@ app.get('/tech/:techBlogId?', function (req,res) {
                 if (err) {
                     console.log(err);
                     process.exit(1);
-	            }
+                }
                 content = data;
                 //console.log(content);
                 var context = {'curr': content, 'active': {'tech': true}, 'month': posts.posts};
