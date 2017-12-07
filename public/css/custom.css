@@ -362,6 +362,14 @@ footer {
   .modalDialog p{
   	font-size: 12px;
   }
+  body {
+  	font-size: 200%;
+  }
+
+  a {
+  	font-size: 200%;
+  }
+
 
   #nav.affix {
     position: static;
