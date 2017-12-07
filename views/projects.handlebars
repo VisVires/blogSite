@@ -8,8 +8,12 @@
 					<td>
 						<h3><a href="https://github.com/VisVires/PinchTest"><i class="fa fa-github-square" aria-hidden="true"></i><strong> PinchTest Application </strong></a></h3> 
 						<ul class="bullets">
-							<li>Android Application built using Android SDK that uses OKHttp and AppAuth to communicate with API</li>
-							<li>RESTful API built in Python and hosted on Google App Engine, Web and iOS interfaces currently under construction</li>
+							<li>Three tiered Android Application built using Android SDK that uses OKHttp and AppAuth to communicate with custom API</li>
+							<li>Google+ OAuth2.0 Integration with Java</li>
+							<li>RESTful API built in Python and hosted on Google App Engine</li>
+							<li>Google DataStore NoSQL for backend</li>
+							<li>Web Interface will be built using Google+ OAuth2.0 and Express with Handlebars templating along with Bootstrap CSS3</li>
+							<li>iOS interface currently under construction</li>
 						</ul>
 					</td>
 				</tr>
@@ -31,6 +35,11 @@
 							<li>Created Procedural Path/Map Generation Algorithm based on Conways Game of Life</li>
 							<li>Created board generation script to create randomized game boards with specified entry/exit points for enemies</li>
 							<li>Added enemy tracking script for user weapons to follow and shoot at enemies across the board when enemies come within range</li>
+							<li>Features to be added</li>
+							<ul>
+								<li>Currently the game uses the AStar routing algorithm for enemy paths. I'd like to add a breathe first, depth first routing, and djiktsra's to add randomization to enemy paths</li>
+								<li>General refactoring of the code to improve bottlenecks</li>
+							</ul>
 						</ul>
 					</td>
 				</tr>
@@ -53,7 +62,7 @@
 							<li>Individual Blog inputs read from backend JSON array which will eventually be ported to a DynamoDB database</li>
 							<li>Photography pulled from S3</li>
 							<li>FB social commenting integration</li>
-							<li>Hosted using AWS EC2 t2.nano instance, Route53 DNS service, and AWS CloudFront</li>
+							<li>Hosted using AWS EC2 t2.nano instance, Route53 DNS service, and Cloudflare for CDN</li>
 						</ul>
 					</td>
 				</tr>
