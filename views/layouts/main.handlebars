@@ -13,7 +13,7 @@
 	<style>code.indent{ padding-left: 1.8em }</style>
 	<!--<script src="/js/activateList.js"></script>-->
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="0">
 	<div id="fb-root">
 	</div>
 	<script>(function(d, s, id) {
@@ -23,74 +23,76 @@
 	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=889093634573648';
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
-	    
-	<!--<nav class="navbar navbar-inverse navbar-fixed-top">
-	  <div class="container">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button> -->
-	      <!--<a class="navbar-brand" href="/"><img id="logo" src="/images/Google-Analytics-icon.png" alt="google_analytics_icon"></a> -->
-	    <!--</div>
-	    <div id="navbar" class="navbar-collapse collapse">
-	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="/">HOME</a></li>
-	        <li class="active"><a href="/tech">TECH</a></li>
-	        <li class="active"><a href="/projects">PROJECTS</a></li>
-	        <li class="active"><a href="/resume">RESUME</a></li>
-	        <li class="active"><a href="/fitness">FITNESS</a></li>
-	        <li class="active"><a href="/photography">PHOTOGRAPHY</a></li>
-	        <li class="active"><a href="/contact">CONTACT</a></li>
-	      </ul>
-	    </div>
-	  </div>
-	</nav> -->
+    <nav class="navbar navbar-inverse navbar-fixed-top hidden-sm">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse visible-sm-down">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">ABOUT ME</a></li>
+            <li><a href="/tech">TECH</a></li>
+            <li><a href="/projects">PROJECTS</a></li>
+            <li><a href="/resume">RESUME</a></li>
+            <li><a href="/fitness">FITNESS</a></li>
+            <li><a href="/photography">PHOTOS</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 	<div class="jumbotron"><!--JumboTron-->
 		<h1 id="headline"><strong></strong></h1>
 	</div><!--JumboTron-->
-	<div class="container-fluid">
-		<div class="row main">
-			<div class="col-sm-2 col-xs-4" id="sidebar">
-			  <ul class="list-group" id="sidebar">
-			    <a href="/"><li class="list-group-item {{#if active.aboutme}}active{{/if}}" id="aboutme">ABOUT ME</li></a>
-			    <a href="/tech"><li class="list-group-item {{#if active.tech}}active{{/if}}" id ="tech">TECH</li></a>
-			    <a href="/projects"><li class="list-group-item {{#if active.projects}}active{{/if}}">PROJECTS</li></a>
-			    <a href="/resume"><li class="list-group-item {{#if active.resume}}active{{/if}}">RESUME</li></a>
-			    <a href="/fitness"><li class="list-group-item {{#if active.fitness}}active{{/if}}">FITNESS</li></a>
-			    <a href="/photography"><li class="list-group-item {{#if active.photography}}active{{/if}}">PHOTOS</li></a>
-			  </ul>
-			</div> <!--col-sm-3--> 
-			<div class="col-sm-10 col-xs-8">
-				{{{body}}}
+		<div class="container-fluid">
+			<div class="row main">
+				<div class="col-sm-2 col-xs-4 hidden-xs" id="sidebar">
+					  <ul class="list-group" id="sidebar">
+					    <a href="/"><li class="list-group-item {{#if active.aboutme}}active{{/if}}" id="aboutme">ABOUT ME</li></a>
+					    <a href="/tech"><li class="list-group-item {{#if active.tech}}active{{/if}}" id ="tech">TECH</li></a>
+					    <a href="/projects"><li class="list-group-item {{#if active.projects}}active{{/if}}">PROJECTS</li></a>
+					    <a href="/resume"><li class="list-group-item {{#if active.resume}}active{{/if}}">RESUME</li></a>
+					    <a href="/fitness"><li class="list-group-item {{#if active.fitness}}active{{/if}}">FITNESS</li></a>
+					    <a href="/photography"><li class="list-group-item {{#if active.photography}}active{{/if}}">PHOTOS</li></a>
+					  </ul>
+				</div> <!--col-sm-3--> 
+				<div class="col-sm-10 col-xs-12 main_section">
+					{{{body}}}
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="container-fluid">
-		<div class="row">
-		<div class="col-sm-4">
-			<nav>
-			  <ul class="pagination">
-			    <li><a href="/" class="nav-link {{#if active.aboutme}}active{{/if}}">1</a></li>
-			    <li><a href="/tech" class="nav-link {{#if active.tech}}active{{/if}}">2</a></li>
-			    <li><a href="/projects" class="nav-link {{#if active.projects}}active{{/if}}">3</a></li>
-			    <li><a href="/resume" class="nav-link {{#if active.resume}}active{{/if}}">4</a></li> 	    
-			    <li><a href="/fitness" class="nav-link {{#if active.fitness}}active{{/if}}">5</a></li>
-			    <li><a href="/photography" class="nav-link {{#if active.photography}}active{{/if}}">6</a></li>
-			  </ul>
-			</nav>
-		<div class="contact">
-			<h4 style="text-align: left"><strong>CONTACT ME</strong></h4>
-			<p><a href="https://www.linkedin.com/in/georgw1/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn </a></p>
-			<p><a href="mailto:wgeorge@outlook.com"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Email </a></p>
-			<p><a href="https://github.com/VisVires"><i class="fa fa-github-square" aria-hidden="true"></i> GitHub </a></p>
-			<p><a href="https://instagram.com/visviresvita"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram </a></p>
+	<!--footer-->
+	<footer class="page-footer">
+		<div class="container-fluid">
+			<div class="row">
+			<div class="col-sm-4">
+				<span class="hidden-sm-down">
+				<nav>
+				  <ul class="pagination">
+				    <li><a href="/" class="nav-link {{#if active.aboutme}}active{{/if}}">1</a></li>
+				    <li><a href="/tech" class="nav-link {{#if active.tech}}active{{/if}}">2</a></li>
+				    <li><a href="/projects" class="nav-link {{#if active.projects}}active{{/if}}">3</a></li>
+				    <li><a href="/resume" class="nav-link {{#if active.resume}}active{{/if}}">4</a></li> 	    
+				    <li><a href="/fitness" class="nav-link {{#if active.fitness}}active{{/if}}">5</a></li>
+				    <li><a href="/photography" class="nav-link {{#if active.photography}}active{{/if}}">6</a></li>
+				  </ul>
+				</nav>
+				</span>
+			<div class="contact">
+				<h4 style="text-align: left"><strong>CONTACT ME</strong></h4>
+				<p class="footer"><a href="https://www.linkedin.com/in/georgw1/"> <i class="fa fa-linkedin-square" aria-hidden="true"></i> LinkedIn </a></p>
+				<p class="footer"><a href="mailto:wgeorge@outlook.com"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Email </a></p>
+				<p class="footer"><a href="https://github.com/VisVires"><i class="fa fa-github-square" aria-hidden="true"></i> GitHub </a></p>
+				<p class="footer"><a href="https://instagram.com/visviresvita"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram </a></p>
+			</div>
+			</div>
+			</div>		
 		</div>
-		</div>
-		</div>		
-	</div>
+	</footer>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/smoothScroll.js"></script>
 </body>

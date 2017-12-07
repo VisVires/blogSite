@@ -71,7 +71,11 @@ code{
 }
 
 .navbar-inverse{
-	background-color:  #64B6AC; 
+	background-color:  #64B6AC;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color: #C0FDFB;
 }
 
 .navbar-default	{
@@ -219,8 +223,12 @@ ul.nav {
 
 footer {
 	background-color: #64B6AC;
-	padding-top: 150px;
-	padding-bottom: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.footer a{
+	color: #C0FDFB;
 }
 
 
@@ -311,7 +319,7 @@ footer {
 @media (max-width: 1200px) {
   .jumbotron h1 {
     font-size: 56px;
-    padding: 0px;
+    padding: 30px;
   }
 }
 /*Small*/
