@@ -25,38 +25,47 @@ app.get('/tech/:techBlogId?', function (req,res) {
     var blogId = req.params.techBlogId;
     var content;
     //console.log(content);
-    if (!blogId || blogId == 'December2017'){
-        fs.readFile('public/tech_blog/tposts.json',  'utf8', function(err, months){
-            if(err) throw err;
-            posts = JSON.parse(months);
-            fs.readFile(path.join(__dirname,'public/tech_blog/tblog_1217.html'), 'utf8',function (err,data) {
-                if (err) {
-                    console.log(err);
-                    process.exit(1);
-	            }
-                content = data;
-                //console.log(content);
-                var context = {'curr': content, 'active': {'tech': true}, 'month': posts.posts};
-                res.render('tech', context);
-            });
-        });
-    }
-    else if(blogId == 'November2017'){
-        fs.readFile('public/tech_blog/tposts.json',  'utf8', function(err, months){
-            if(err) throw err;
-            posts = JSON.parse(months);
-            fs.readFile(path.join(__dirname,'public/tech_blog/tblog1115.html'), 'utf8',function (err,data) {
+    //parse JSON file
+    fs.readFile('public/tech_blog/tposts.json',  'utf8', function(err, months){
+        if(err) throw err;
+        posts = JSON.parse(months);
+        if (!blogId || blogId == 'January2018'){
+            fs.readFile(path.join(__dirname,'public/tech_blog/tblog_0118.html'), 'utf8',function (err,data) {
                 if (err) {
                     console.log(err);
                     process.exit(1);
                 }
                 content = data;
                 //console.log(content);
-                var context = {'curr': content, 'active': {'tech': true}, 'month': posts.posts};
+                var context = {'curr': content, 'active': {'tech': true}, 'month': posts.posts.post};
                 res.render('tech', context);
             });
-        });
-    }
+        }
+        else if(blogId == 'December2017'){
+            fs.readFile(path.join(__dirname,'public/tech_blog/tblog_1217.html'), 'utf8',function (err,data) {
+                if (err) {
+                    console.log(err);
+                    process.exit(1);
+                }
+                content = data;
+                //console.log(content);
+                var context = {'curr': content, 'active': {'tech': true}, 'month': posts.posts.post};
+                res.render('tech', context);
+            });
+        }
+        else if(blogId == 'November2017'){
+            fs.readFile(path.join(__dirname,'public/tech_blog/tblog_1117.html'), 'utf8',function (err,data) {
+                if (err) {
+                    console.log(err);
+                    process.exit(1);
+                }
+                content = data;
+                //console.log(content);
+                var context = {'curr': content, 'active': {'tech': true}, 'month': posts.posts.post};
+                res.render('tech', context);
+            });
+        }
+    });
 });
 
 //projects 
