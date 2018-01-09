@@ -1,13 +1,12 @@
 <h2 class="blog-post-title">What I'm working on right now...</h2>
 <h5>Quote of the Week</h5>
   <blockquote>
-    <p><strong>“Every kid coming out of Harvard, every kid coming out of school now thinks he can be the next Mark Zuckerberg, and with these new technologies like cloud computing, he actually has a shot.” -- Marc Andreessen, Co-founder of Netscape, Board Member of Facebook</strong></p>
+    <p><strong>“There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.” -- C.A.R. Hoare</strong></p>
   </blockquote>
-  <hr><p class="blog-post-meta"><strong><em>January 4, 2018</em></strong></p>
-  <p>Today I started the well-architected framework blog post and working on some interview prep.</p>
-  <hr>
-<hr><p class="blog-post-meta"><strong><em>January 3, 2018</em></strong></p>
-  <p>Yesterday, as I'm sure you can imagine was a huge fitness day, so I wasn't able to get into the tech stuff as much. Today I will be studying for an upcoming interview as well as starting my blog post for this month on the "A Well Architected Framework" AWS Whitepaper. I'd also like to start pulling my blog files from a JSON script rather than how I currently have it configured.</p>
+  <hr><p class="blog-post-meta"><strong><em>January 9, 2018</em></strong></p>
+  <p>Today I finished the blog post for the month today after reviewing the rest of the Well-Architected Framework White Paper. Hopefully this evening will be spent working on some C++ challenges and algorithm review.</p>
+    <hr><p class="blog-post-meta"><strong><em>January 8, 2018</em></strong></p>
+  <p>My fitness business has been busy (as expected for the beginning of the year), so I haven't been able to focus on the programming/CS elements as much but today I plan on finishing my blog post and to start working on adding some extra elements to my Tower Defense game.</p>
   <hr>
 <a class="btn btn-default" href= "#lastweek"  role="button">Last Week's Activity &raquo;</a></p>
   <div id = "lastweek" class="modalDialog">
@@ -15,21 +14,19 @@
         <a href="#close" title = "Close" class="close">X</a>
 <h5>Quote of the Week</h5>
   <blockquote>
-    <p><strong>"Beta is latin for still doesn't work" -- Unknown</strong></p>
+    <p><strong>“Every kid coming out of Harvard, every kid coming out of school now thinks he can be the next Mark Zuckerberg, and with these new technologies like cloud computing, he actually has a shot.” -- Marc Andreessen</strong></p>
   </blockquote>
-<hr><p class="blog-post-meta"><strong><em>December 31, 2017</em></strong></p>
-  <p>Moved and edited my addToPhotographyJSON script to add new files and added some more pictures to my photography page.</p>
-  <hr>
-<p class="blog-post-meta"><strong><em>December 29, 2017</em></strong></p>
-  <p>These past couple weeks have been busy ones outside of development. Today I focused on adding more to my blog post on Scrum and hopefully will be able to add a Kanban post before the end of the month. Tomorrow is a travel day so hopefully I'll be able to complete my task this evening.</p>
-  <hr>
-  <p class="blog-post-meta"><strong><em>December 26, 2017</em></strong></p>
-  <p>Focus of today and this last weekend is studying, the roles I'm interviewing for are all unique and need individual attention.</p>
+    <hr><p class="blog-post-meta"><strong><em>January 5, 2018</em></strong></p>
+  <p>I've been frustrated with the speed of my workflow and my desktops ability/speed in photo editing and my Android/iOS development, especially when using the emulators for the specific platforms. I spent today researching hardware components that will hopefully improve/ optimize my personal performance.</p>
+  <hr><p class="blog-post-meta"><strong><em>January 4, 2018</em></strong></p>
+  <p>Today I started the well-architected framework blog post and working on some interview prep.</p>
+<hr><p class="blog-post-meta"><strong><em>January 3, 2018</em></strong></p>
+  <p>Yesterday, as I'm sure you can imagine was a huge fitness day, so I wasn't able to get into the tech stuff as much. Today I will be studying for an upcoming interview as well as starting my blog post for this month on the "A Well Architected Framework" AWS Whitepaper. I'd also like to start pulling my blog files from a JSON script rather than how I currently have it configured.</p>
   <hr>
 </div>
   </div><em><br></em>
 <hr class="style3">
-<!--<h2 class="blog-post-title">A Well Architected Framework</h2>
+<h2 class="blog-post-title">A Well Architected Framework</h2>
  <p class="blog-post-meta">January 2018</p>
  <p><strong>A Summary of the AWS White Paper</strong></p>
  <hr>
@@ -46,26 +43,124 @@ For each of these I will do a brief overview of the design principles and the be
 <hr>
 <h3>Operational Excellence</h3>
 <h4>Design Principles</h4>
+<p>
+<ul>
+  <li>Perform operation as code – Define entire environment and workload as code to reduce human error and enable consistent responses </li>
+  <li>Annotate Documentation – Automate the creation of documentation after every build</li>
+  <li>Refine operation procedures frequently- Always look for opportunities for improvement and evolve procedures to facilitate improvement</li>
+  <li>Make frequent, small reversible changes – Making small changes allows for components to be updated frequently</li>
+  <li>Anticipate Failure – Always test failure response procedures and perform exercises to identify sources of failure.</li>
+  <li>Learn from all operations failures- drive improvements through lessons learned</li>
+</ul>
+</p>
 <h4>Best Practices</h4>
-<p></p>
+<p><ul>
+  <li>Prepare</li>
+    <ul>
+      <li>Have shared goals and understanding across every part of the business</li>
+      <li>Design your system to monitor all aspects of the application, infrastructure and customer experience</li>
+      <li>Design method by to validate application is ready for production and to be supported by operations</li>
+      <li>Be sure to have sufficient trained personnel to support the workloads</li>
+      <li>Test and practice response to operational events and failures </li>
+    </ul>
+  <li>Operate</li>
+    <ul>
+      <li>Measure operational health and success by the achievement of business and customer outcomes using custom dashboards to manage expectations and inform of normal operations</li>
+      <li>Prioritize responses based on business and customer impact</li>
+      <li>Determine cause of unplanned events and update procedures to facilitate for them</li>
+      <li>Routine and responses to unplanned events should be automated</li>
+    </ul>
+  <li>Evolve</li>
+    <ul>
+      <li>Dedicate work cycles to continuous incremental improvements</li>
+      <li>Evaluate and prioritize improvement opportunities in both workload and operations procedures</li>
+      <li>Share lessons across to teams to share benefits</li>
+      <li>Make frequent small improvements with a safe environment from which to experiment, develop and test improvements</li>
+    </ul>
+</ul></p>
 <hr>
 <h3>Security</h3>
 <h4>Design Principles</h4>
+<p><ul>
+  <li>Implement a strong identity foundation by separating duties, giving individuals the least privilege needed, centralizing privilege management and reducing long-term credentials.</li>
+  <li>Enable traceability by monitoring, alerting and auditing all changes and integrating logs and metrics to respond.</li>
+  <li>Apply security at each layer of the application from the network to the operating system of each specific instance</li>
+  <li>Automate best practices</li>
+  <li>Protect data at data and at rest by limiting human interaction and classifying data into sensitivity levels using encryption and tokenization.</li>
+  <li>Prepare for security events and have an incident management process that aligns with organization requirements</li>
+</ul></p>
 <h4>Best Practices</h4>
-<p></p>
-<hr>t
+<p><ul>
+  <li>Identity and Access Management – allow only authorized and authenticated users to access resources in only the manner intended (R/W/Execute)</li>
+  <li>Detective Controls – use to identify potential security incidents with reactive tools to identify and understand anomalous activity</li>
+  <li>Infrastructure Protection – Defend the infrastructure at all layers and enforce rules to increase security even further like Multi-Factor Authorization</li>
+  <li>Data Protection – Before designing a system define rules for data classification and encryption</li>
+  <li>Incident Response – Isolate and contain systems to restore operations to a good known state and routinely practice incident responses</li>
+</ul></p>
+<hr>
 <h3>Reliability</h3>
 <h4>Design Principles</h4>
+<p><ul>
+  <li>Use automation in the cloud to simulate and recreate failures then test recovery procedures</li>
+  <li>Automatically recover from failure by monitoring system for key performance indicators and triggering recovery mechanisms when certain thresholds are breached</li>
+  <li>Scale horizontally to increase aggregate system availability by distributing requests across several smaller resources so one point of failure has a smaller impact on the overall system</li>
+  <li>Stop guessing capacity and automate addition and removal of resources</li>
+  <li>Manage changes to the system using automation</li>
+</ul></p>
 <h4>Best Practices</h4>
-<p></p>
+<p><ul>
+  <li>Foundations – set foundational requirements that influence reliability before architecting a system, understand that cloud is limitless and that limits for networking and computing capacity may change over time</li>
+  <li>Change Management – Monitor trends that could lead to capacity issues and add or remove resources as needed using automated responses to key performance indicators to increase reliability and ensure that business success doesn’t become a burden </li>
+  <li>Failure Management – Automate reactions to monitoring data, perform regular backups and test backups to cause failures and ensure you can recover from physical and logical errors</li>
+</ul></p>
 <hr>
 <h3>Perfomance Efficiency</h3>
 <h4>Design Principles</h4>
+<p><ul>
+  <li>Democratize advance technologies by pushing them onto the cloud and using them as a service rather than trying to learn to host and run it</li>
+  <li></li>Go global in minutes by deploying your service in multiple regions all over the world and provide customers a lower latency and better experience
+  <li>Use serverless architectures to remove the need to run and maintain servers for traditional compute activities and lower transactional costs</li>
+  <li>Experiment more often by carrying out comparative testing with different types of instances, storage types and different configurations</li>
+  <li>Use the technologies that best align with what you’re trying to achieve like data access patterns with databases and other storage approaches.</li>
+</ul></p>
 <h4>Best Practices</h4>
-<p></p>
+<p><ul>
+  <li>Select multiple solutions from the different resource types to improve performance. The four main resource types are:</li>
+    <ul>
+      <li>Compute – varies based on application design, usage patterns and configuration settings and available in three different forms:</li>
+      <ul>
+        <li>Instances – virtualized servers</li>
+        <li>Containers – resource isolated processes using operating system virtualization</li>
+        <li>Functions – abstracted execution environment from the code</li>
+      </ul>
+    <li>Storage – varies based on access methods, patterns of access, throughput, frequency of access, update frequency, availability and durability constraints.</li>
+    <li>Database – varies based on availability, consistency, partition tolerance, latency, durability, scalability and query capability. Available in 3 forms:</li>
+    <ul>
+      <li>Managed Relational Databases – Database with tables, rows and columns with relational backbone</li>
+      <li>NoSQL Databases – key, value based pairs </li>
+      <li>Data Warehouses – means of changing the types and number of nodes as performance and capacity needs change</li>
+    </ul>
+  <li>Network – Varies based on latency and throughput requirements where physical constraints such as resource placement and location play big factors.</li>
+  </ul>
+  <li>Review architecture and performance and understand where bottlenecks are so you can look for tools to alleviate those constraints</li>
+  <li>Set monitors to raise alarms when thresholds are reached and set off automated triggers to work around poorly performing components</li>
+  <li>Trade consistency, availability, durability, space, time, and/or latency to deliver higher performance that aligns with business goals and test the trade-offs to ensure a measurable benefit it obtained.</li>
+</ul></p>
 <hr>
 <h3>Cost Optimization</h3>
 <h4>Design Principles</h4>
+<p><ul>
+  <li>Adopt a consumption model so that you only pay for the computing resources you consume.</li>
+  <li>Measure overall efficiency by monitoring the business output of the system and the costs associated with it</li>
+  <li>Stop spending money on data center operations and allow a cloud service to manage hardware for you</li>
+  <li>Analyze and attribute expenditure to measure return on investment</li>
+  <li>Use managed services to remove the operational burden of maintaining servers for menial tasks</li>
+</ul></p>
 <h4>Best Practices</h4>
-<p></p>
-<hr>-->
+<p><ul>
+  <li>Cost Effective Resources – Use the most cost effective resources</li>
+  <li>Match Supply and Demand – Actively think about patterns of usage and time to provision new resources so you can add and remove resources as needed </li>
+  <li>Expenditure Awareness - Because you no longer have to think about the cost of manual processes associated with on-campus infrastructure you can now use tags to categorize and track costs of cloud resources and determine what resources or products are no longer generating income</li>
+  <li>Optimize over time – As requirements change be aggressive in decommissioning resources and services no longer needed and be aware of new services and how they could save you money</li>
+</ul></p>
+<hr>
