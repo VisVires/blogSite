@@ -47,7 +47,7 @@
   "keywords": [],
   "dependencies": {
     "all": "0.0.0",
-    "aws-sdk": "^2.153.0",
+    "aws-sdk": "^2.814.0",
     "diff": "^4.0.2",
     "forever": "^3.0.0",
     "fs": "0.0.1-security",
